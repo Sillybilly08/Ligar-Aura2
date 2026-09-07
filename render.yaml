@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: clinica-lena
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    autoDeploy: false
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+    # volume não existe no free, precisa re-parear após cada deploy
+    # por isso prefira Koyeb/Fly/Oracle para zero custo real
