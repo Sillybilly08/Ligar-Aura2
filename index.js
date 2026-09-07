@@ -13,11 +13,21 @@ process.on("unhandledRejection", (e) => {
 });
 import fs from "fs";
 import { responder } from "./bot.js";
+import { createServer } from "http";
 
 // Silencia logs verbose do Baileys, mantém só erros
 const logger = pino({ level: "silent" });
 
 const AUTH_DIR = "./auth_info_baileys";
+
+// Healthcheck para PaaS (Koyeb/Railway/Render exigem porta aberta)
+const PORT = process.env.PORT || 3000;
+try {
+  createServer((req, res) => {
+    if (req.url === "/health") { res.writeHead(200, {"Content-Type":"application/json"}); res.end(JSON.stringify({status:"ok", service:"clinica-lena", number:"5591920029187"})); }
+    else { res.writeHead(200, {"Content-Type":"text/plain"}); res.end("Clinica Lena WhatsApp 5591920029187 - OK"); }
+  }).listen(PORT, () => console.log(`[health] ouvindo em :${PORT}`));
+} catch(e) { console.log("[health] erro:", e.message); }
 
 async function transcreverAudio(buffer, mimeType) {
   // Se tiver OPENAI_API_KEY, tenta transcrever via Whisper

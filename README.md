@@ -27,3 +27,13 @@ Lógica da recepcionista em `bot.js` — nunca inventa preço/disponibilidade.
 
 - `npm start` — inicia Baileys
 - `pm2 start ecosystem.config.js` — produção com auto-restart
+
+## Deploy 1-clique (zero custo)
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Sillybilly08/Ligar-Aura2)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/Sillybilly08/Ligar-Aura2&branch=main&name=clinica-lena)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Sillybilly08/Ligar-Aura2)
+
+> Koyeb = recomendado grátis permanente (não dorme). Railway = free trial. Render free dorme (não recomendado para WhatsApp).
+
+Após deploy, veja os Logs e escaneie o QR em texto com o celular 5591920029187.
