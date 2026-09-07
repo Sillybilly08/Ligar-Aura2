@@ -3,3 +3,5 @@ auth_info_baileys/
 .env
 *.log
 .DS_Store
+__pycache__/
+qrcode.png
